@@ -1,0 +1,28 @@
+- name: apt proxy config
+  # 不加有权限问题
+  become: true
+  copy:
+    dest: /etc/apt/apt.conf.d/proxy.conf
+    owner: root
+    group: root
+    content: |-
+      Acquire {
+        HTTP::proxy "{{proxy}}";
+        HTTPS::proxy "{{proxy}}";
+      }
+
+- name: Upgrade apt
+  become: true
+  apt:
+    upgrade: yes
+    autoremove: yes
+
+- name: Install required packages
+  become: true
+  package:
+    name:
+      - apt-transport-https
+      - build-essential
+      - software-properties-common
+    state: present
+

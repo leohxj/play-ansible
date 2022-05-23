@@ -1,0 +1,27 @@
+
+- name: Install tmux
+  become: true
+  package:
+    name:
+      - tmux
+    state: present
+
+- name: Installing oh-my-tmux
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: "{{ ansible_env.HOME }}/.tmux"
+    update: yes
+    version: master
+
+- name: Create a symbolic link to .tmux.conf
+  file:
+    src: "{{ ansible_env.HOME }}/.tmux/.tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    state: link
+    force: yes
+
+- name: Create .tmux.conf.local
+  copy:
+    src: config/.tmux.conf.local
+    dest: "{{ ansible_env.HOME }}/.tmux.conf.local"
+    force: yes

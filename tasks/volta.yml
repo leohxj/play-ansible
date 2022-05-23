@@ -1,0 +1,25 @@
+# 安装 volta, 需要中断操作
+- name: Install Volta JavaScript Tool Manager.
+  shell: "curl https://get.volta.sh | bash"
+  args:
+    creates: "{{ ansible_env.HOME }}/.volta"
+
+# 安装 node
+- name: Install default node version.
+  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install node"
+
+# 安装 yarn
+- name: Install default node version.
+  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install yarn"
+
+# 安装 yarn
+- name: Install default node version.
+  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install pnpm"
+
+# 列出已安装的模块
+- name: List installed npm packages.
+  shell: "{{ ansible_env.HOME }}/.volta/bin/volta list"
+
+# 安装其他 global 的包
+- name: Install global npm packages.
+  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install rimraf serve"

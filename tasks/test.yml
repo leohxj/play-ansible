@@ -1,0 +1,19 @@
+- name: echo proxy
+  shell: echo $http_proxy
+
+- name: touch README
+  command: touch ~/README.md
+  args:
+    # 不存在的时候, 才执行
+    creates: ~/README.md
+
+- name: script test
+  script: scripts/test.sh
+
+- name: curl
+  shell: curl cip.cc
+
+# 会自动带上环境变量
+- name: sudo curl
+  become: true
+  shell: curl cip.cc

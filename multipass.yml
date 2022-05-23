@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  vars:
+    proxy_host: "192.168.64.1"
+    proxy_port: "1087"
+    proxy: "http://192.168.64.1:1087"
+  environment:
+    http_proxy: "{{proxy}}"
+    https_proxy: "{{proxy}}"
+    HTTP_PROXY: "{{proxy}}"
+    HTTPS_PROXY: "{{proxy}}"
+  tasks:
+    # - import_tasks: tasks/test.yml
+    # - import_tasks: tasks/package.yml
+    # - import_tasks: tasks/homebrew.yml
+    # - import_tasks: tasks/starship.yml
+    # - import_tasks: tasks/volta.yml
+    # - import_tasks: tasks/oh-my-zsh.yml
+    # - import_tasks: tasks/tmux.yml
+    - import_tasks: tasks/docker.yml
+    # - import_tasks: tasks/dotfiles.yml
+

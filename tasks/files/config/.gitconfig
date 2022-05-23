@@ -1,0 +1,71 @@
+[push]
+	default = simple
+[user]
+	name = Leo Hui
+	email = leohxj@gmail.com
+[credential]
+	helper = osxkeychain
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	mm = merge --no-ff
+	last = "log -1 HEAD"
+	ll = "log --pretty=oneline --graph"
+	unstage = "reset HEAD --"
+  gi = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+[commit]
+	template = /Users/leohxj/.stCommitMsg
+[core]
+	excludesfile = /Users/leohxj/.gitignore_global
+	ignorecase = true
+	pager = delta
+[difftool]
+    prompt = false
+[http "http://github.com/"]
+    proxy = http://127.0.0.1:1087
+[http "https://github.com/"]
+    proxy = http://127.0.0.1:1087
+[http "http://bitbucket.org/"]
+    proxy = http://127.0.0.1:1087
+[http "https://bitbucket.org/"]
+    proxy = http://127.0.0.1:1087
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	rebase = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+		features = unobtrusive-line-numbers decorations
+    whitespace-error-style = 22 reverse
+		plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[delta "unobtrusive-line-numbers"]
+    line-numbers = true
+    line-numbers-minus-style = "#444444"
+    line-numbers-zero-style = "#444444"
+    line-numbers-plus-style = "#444444"
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box

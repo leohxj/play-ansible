@@ -1,0 +1,8 @@
+- name: Copy .zshenv
+  copy:
+    src: config/home/.zshenv
+    dest: ~/.zshenv
+- name: Copy .zshrc
+  copy:
+    src: config/home/.zshrc
+    dest: ~/.zshrc

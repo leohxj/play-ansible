@@ -1,0 +1,6 @@
+# 需要 sudo 权限, 并且默认是中断操作的
+# 安装完成后, 如果是 zsh , 还需要添加配置文件 eval $(starship init)
+- name: Install starship
+  become: true
+  shell: curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+

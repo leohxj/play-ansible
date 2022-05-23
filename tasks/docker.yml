@@ -1,0 +1,26 @@
+- name: Install requirement when use rootless
+  become: true
+  package:
+    name:
+      - uidmap
+    state: present
+
+
+- name: Install Docker
+  shell: "curl https://get.docker.com | bash"
+
+
+- name: To run Docker as a non-privileged user
+  shell: "dockerd-rootless-setuptool.sh install"
+
+
+# 安装完成 rootless 后, 需要重启服务, 以及添加配置到 .zshrc
+
+
+# 安装 docker-compose
+- name: Install docker-compose
+  become: true
+  package:
+    name:
+      - docker-compose
+    state: present

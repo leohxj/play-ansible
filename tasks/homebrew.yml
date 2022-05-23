@@ -1,0 +1,14 @@
+# https://github.com/Homebrew/install
+# 默认安装会中断的, 需要设置 NO_INTERACTION=1
+# 安装过程比较长, 会 clone 好几个 git repo
+- name: Install Homebrew
+  shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  args:
+    creates: /usr/local/bin/brew
+
+
+# 安装完成后, eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+- name: Install neofetch
+  shell: "/home/linuxbrew/.linuxbrew/bin/brew install neofetch"
+
+
