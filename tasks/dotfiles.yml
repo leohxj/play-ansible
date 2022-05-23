@@ -1,8 +1,59 @@
-- name: Copy .zshenv
+# - name: Copy .zshrc
+#   copy:
+#     src: config/.zshrc
+#     dest: ~/.zshrc
+
+# - name: Create .tmux.conf.local
+#   copy:
+#     src: config/.tmux.conf.local
+#     dest: "{{ ansible_env.HOME }}/.tmux.conf.local"
+#     force: yes
+
+
+- name: Copy .cz-config
   copy:
-    src: config/home/.zshenv
-    dest: ~/.zshenv
-- name: Copy .zshrc
+    src: config/.cz-config.js
+    dest: ~/.cz-config.js
+
+- name: Copy .czrc
   copy:
-    src: config/home/.zshrc
-    dest: ~/.zshrc
+    src: config/.czrc
+    dest: ~/.czrc
+
+- name: Copy .gitconfig
+  copy:
+    src: config/.gitconfig
+    dest: ~/.gitconfig
+
+- name: write .ssh/config.d/github
+  copy:
+    dest: ~/.ssh/config.d/github
+    content: |-
+      Host github.com
+         HostName github.com
+         User git
+         ProxyCommand socat - PROXY:{{proxy_host}}:%h:%p,proxyport={{proxy_port}}
+         # for socks5 proxy
+         # ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
+         # for windows
+         # ProxyCommand connect -S 127.0.0.1:7890 -a none %h %p
+
+- name: Copy .ssh/config
+  copy:
+    src: config/.ssh/config
+    dest: ~/.ssh/config
+
+- name: Copy github-leohxj_rsa
+  copy:
+    src: config/.ssh/github-leohxj_rsa
+    dest: ~/.ssh/github-leohxj_rsa
+
+- name: Copy coding-leohxj_rsa
+  copy:
+    src: config/.ssh/coding-leohxj_rsa
+    dest: ~/.ssh/coding-leohxj_rsa
+
+- name: Copy tencent-sh_rsa
+  copy:
+    src: config/.ssh/tencent-sh_rsa
+    dest: ~/.ssh/tencent-sh_rsa

@@ -24,5 +24,9 @@
       - apt-transport-https
       - build-essential
       - software-properties-common
+      - thefuck
+      - tldr
+      - zoxide
+      - fzf
     state: present
 

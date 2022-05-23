@@ -11,4 +11,12 @@
 - name: Install neofetch
   shell: "/home/linuxbrew/.linuxbrew/bin/brew install neofetch"
 
+- name: tap mcfly
+  shell: "/home/linuxbrew/.linuxbrew/bin/brew tap cantino/mcfly"
 
+- name: install mcfly
+  shell: "/home/linuxbrew/.linuxbrew/bin/brew install cantino/mcfly/mcfly"
+
+
+- name: install broot
+  shell: "/home/linuxbrew/.linuxbrew/bin/brew install broot"
