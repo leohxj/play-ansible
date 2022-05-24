@@ -6,27 +6,27 @@
   args:
     creates: /usr/local/bin/brew
 
-
-- name: eval Homebrew
-  shell: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 - name: Install neofetch
   homebrew:
-    name:  neofetch
+    name: neofetch
+    path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
 - name: tap mcfly
   homebrew_tap:
     name: cantino/mcfly
+    path: /home/linuxbrew/.linuxbrew/bin
 
 - name: install mcfly
   homebrew:
     name: cantino/mcfly/mcfly
+    path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
 
 - name: install broot
   homebrew:
     name: broot
+    path: /home/linuxbrew/.linuxbrew/bin
     state: present
 

@@ -87,10 +87,10 @@ plugins=(
 
   # fzf
   # fzf
-  fzf-tab
+  # fzf-tab
 
   # reload
-  zsh_reload
+  # zsh_reload
 )
 
 # 关闭自动 URL 转义, 需要放在 source zsh 之前
@@ -177,7 +177,7 @@ export EDITOR="vim"
 # zoxide
 eval "$(zoxide init zsh)"
 
-# broot
-source /home/leohxj/.config/broot/launcher/bash/br
+# broot, 需要先执行一次, 才可以
+# source /home/leohxj/.config/broot/launcher/bash/br
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

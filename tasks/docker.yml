@@ -16,9 +16,10 @@
 
 # 安装完成 rootless 后, 需要重启服务, 以及添加配置到 .zshrc
 - name: restart docker
+  become: true
   service:
     name: docker
-    state: restart
+    state: restarted
 
 # 安装 docker-compose
 - name: Install docker-compose
