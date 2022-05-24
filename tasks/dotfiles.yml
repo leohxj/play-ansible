@@ -9,7 +9,6 @@
 #     dest: "{{ ansible_env.HOME }}/.tmux.conf.local"
 #     force: yes
 
-
 - name: Copy .cz-config
   copy:
     src: config/.cz-config.js
@@ -25,6 +24,21 @@
     src: config/.gitconfig
     dest: ~/.gitconfig
 
+- name: Ensures ~/.ssh dir exists
+  file:
+    path: ~/.ssh
+    state: directory
+
+- name: Copy .ssh/config
+  copy:
+    src: config/.ssh/config
+    dest: ~/.ssh/config
+
+- name: Ensures ~/.ssh/config.d dir exists
+  file:
+    path: ~/.ssh/config.d
+    state: directory
+
 - name: write .ssh/config.d/github
   copy:
     dest: ~/.ssh/config.d/github
@@ -37,11 +51,6 @@
          # ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
          # for windows
          # ProxyCommand connect -S 127.0.0.1:7890 -a none %h %p
-
-- name: Copy .ssh/config
-  copy:
-    src: config/.ssh/config
-    dest: ~/.ssh/config
 
 - name: Copy github-leohxj_rsa
   copy:
