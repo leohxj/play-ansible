@@ -9,8 +9,7 @@
 
 # 为当前用户, 设置默认 shell
 - name: Change default shell to zsh
-  become: true
-  shell: chsh -s "$(which zsh)" "$(whoami)"
+  shell: sudo chsh -s "$(which zsh)" "$(whoami)"
 
 
 #If absent, directories will be recursively deleted, and files or symlinks will be unlinked.
