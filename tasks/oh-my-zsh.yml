@@ -10,8 +10,7 @@
 # 为当前用户, 设置默认 shell
 - name: Change default shell to zsh
   become: true
-  shell:
-    cmd: chsh -s "$(which zsh)" "$(whoami)"
+  shell: chsh -s "$(which zsh)" "$(whoami)"
 
 
 #If absent, directories will be recursively deleted, and files or symlinks will be unlinked.
@@ -21,8 +20,7 @@
     state: absent
 
 - name: Install ohmyzsh
-  shell:
-    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 - name: Copy .zshrc
   copy:
