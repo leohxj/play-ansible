@@ -161,21 +161,22 @@ export PATH=/usr/bin:$PATH
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
 
-# mcfly
-eval "$(mcfly init zsh)"
-SAVEHIST=1000  # Save most-recent 1000 lines
-HISTFILE=~/.zsh_history
-
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+# export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 export EDITOR="vim"
 
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# mcfly
+eval "$(mcfly init zsh)"
+SAVEHIST=1000  # Save most-recent 1000 lines
+HISTFILE=~/.zsh_history
+
 
 # broot, 需要先执行一次, 才可以
 # source /home/leohxj/.config/broot/launcher/bash/br
