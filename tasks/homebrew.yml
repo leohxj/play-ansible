@@ -7,16 +7,26 @@
     creates: /usr/local/bin/brew
 
 
-# 安装完成后, eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+- name: eval Homebrew
+  shell: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 - name: Install neofetch
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install neofetch"
+  homebrew:
+    name:  neofetch
+    state: present
 
 - name: tap mcfly
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew tap cantino/mcfly"
+  homebrew_tap:
+    name: cantino/mcfly
 
 - name: install mcfly
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install cantino/mcfly/mcfly"
+  homebrew:
+    name: cantino/mcfly/mcfly
+    state: present
 
 
 - name: install broot
-  shell: "/home/linuxbrew/.linuxbrew/bin/brew install broot"
+  homebrew:
+    name: broot
+    state: present
+

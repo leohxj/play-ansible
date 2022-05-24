@@ -7,12 +7,10 @@
       - socat
     state: present
 
-
 - name: Copy .gitconfig
   copy:
     src: config/.gitconfig
     dest: ~/.gitconfig
-
 
 - name: git ssh proxy config
   copy:
