@@ -23,6 +23,12 @@
     path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
+- name: install lsd
+  homebrew:
+    name: lsd
+    path: /home/linuxbrew/.linuxbrew/bin
+    state: present
+
 
 - name: install broot
   homebrew:
