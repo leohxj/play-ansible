@@ -4,7 +4,7 @@
 - name: Install Homebrew
   shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   args:
-    creates: /usr/local/bin/brew
+    creates: /home/linuxbrew/.linuxbrew/bin/brew
 
 - name: Install neofetch
   homebrew:

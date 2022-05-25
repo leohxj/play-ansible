@@ -40,3 +40,8 @@
   copy:
     src: config/.ssh/tencent-sh_rsa
     dest: ~/.ssh/tencent-sh_rsa
+
+# 更新权限
+- name: Copy tencent-sh_rsa
+  shell: chmod 600 ~/.ssh/*_rsa
+
