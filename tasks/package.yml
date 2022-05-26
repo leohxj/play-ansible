@@ -1,5 +1,5 @@
+# 添加代理, 是的后续 apt 使用代理更新
 - name: apt proxy config
-  # 不加有权限问题
   become: true
   copy:
     dest: /etc/apt/apt.conf.d/proxy.conf

@@ -29,7 +29,6 @@
     path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
-
 - name: install broot
   homebrew:
     name: broot
