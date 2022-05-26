@@ -21,12 +21,15 @@
   become: true
   package:
     name:
-      - apt-transport-https
       - build-essential
       - software-properties-common
+      - apt-transport-https
       - thefuck
       - tldr
       - zoxide
       - fzf
+      - git
+      - git-extras
+      - socat
     state: present
 

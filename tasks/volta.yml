@@ -5,36 +5,48 @@
     creates: "{{ ansible_env.HOME }}/.volta"
 
 # 安装 node
-- name: Install default node version.
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install node"
+- name: Volta Install node
+  shell: "volta install node"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/node"
 
-
 # 安装 yarn
-- name: Install default node version.
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install yarn"
+- name: Volta Install yarn
+  shell: "volta install yarn"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/yarn"
 
-# 安装 yarn
-- name: Install default node version.
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install pnpm"
+# 安装 pnpm
+- name: Volta Install pnpm
+  shell: "volta install pnpm"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/pnpm"
 
 # 安装 rimraf
-- name: Install global npm packages rimraf
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install rimraf"
+- name: Volta Install rimraf
+  shell: "volta install rimraf"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/rimraf"
 
 # 安装 serve
-- name: Install global npm packages serve
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta install serve"
+- name: Volta Install serve
+  shell: "volta install serve"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/serve"
 
 # 列出已安装的模块
-- name: List installed npm packages.
-  shell: "{{ ansible_env.HOME }}/.volta/bin/volta list"
+- name: Volta list installed npm packages.
+  shell: "volta list"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
+

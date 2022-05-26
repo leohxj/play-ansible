@@ -12,8 +12,8 @@
 	last = "log -1 HEAD"
 	ll = "log --pretty=oneline --graph"
 	unstage = "reset HEAD --"
-# [http "http://github.com/"]
-#     proxy = http://127.0.0.1:1087
-# [http "https://github.com/"]
-#     proxy = http://127.0.0.1:1087
+[http "http://github.com/"]
+    proxy = {{proxy}}
+[http "https://github.com/"]
+    proxy = {{proxy}}
 

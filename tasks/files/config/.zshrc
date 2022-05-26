@@ -164,7 +164,6 @@ export DOCKER_HOST=unix:///run/user/1000/docker.sock
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-# export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 export EDITOR="vim"
 
