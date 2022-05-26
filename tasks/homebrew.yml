@@ -3,12 +3,12 @@
 # 安装过程比较长, 会 clone 好几个 git repo
 # 可添加输出重定向 >> uninstall_homebrew.log
 
-- name: Uninstall Homebrew
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
-  ignore_errors: true
+# - name: Uninstall Homebrew
+#   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
+#   ignore_errors: true
 
 - name: Install Homebrew
-  shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> /tmp/install_homebrew.log
   args:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 
