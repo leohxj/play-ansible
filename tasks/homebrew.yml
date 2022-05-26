@@ -10,11 +10,8 @@
 - name: Install Homebrew
   shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> /tmp/install_homebrew.log
   environment:
-    HOMEBREW_BREW_DEFAULT_GIT_REMOTE: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew"
-    HOMEBREW_CORE_DEFAULT_GIT_REMOTE: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core"
-
-
-
+    HOMEBREW_BREW_GIT_REMOTE: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew"
+    HOMEBREW_CORE_GIT_REMOTE: "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core"
   args:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 
