@@ -1,17 +1,17 @@
 # https://github.com/Homebrew/install
 # 默认安装会中断的, 需要设置 NO_INTERACTION=1
-# 安装过程比较长, 会 clone 好几个 git repo
+# 安装过程比较长, 走 github 仓库大约 30min, 国内镜像大约 8m
 # 可添加输出重定向 >> uninstall_homebrew.log
 
-# - name: Uninstall Homebrew
-#   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
-#   ignore_errors: true
+- name: Uninstall Homebrew
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
+  ignore_errors: true
 
 - name: Install Homebrew
   shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> /tmp/install_homebrew.log
   environment:
-    HOMEBREW_BREW_GIT_REMOTE: "https://mirrors.nju.edu.cn/git/homebrew/brew.git"
-    HOMEBREW_CORE_GIT_REMOTE: "https://mirrors.nju.edu.cn/git/homebrew/homebrew-core.git"
+    HOMEBREW_BREW_GIT_REMOTE: "https://mirrors.ustc.edu.cn/brew.git"
+    HOMEBREW_CORE_GIT_REMOTE: "https://mirrors.ustc.edu.cn/homebrew-core.git"
   args:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 

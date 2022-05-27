@@ -24,12 +24,16 @@
       - build-essential
       - software-properties-common
       - apt-transport-https
+      - procps
+      - curl
+      - file
       - thefuck
       - tldr
       - zoxide
       - fzf
       - git
       - git-extras
+      - gnutls-bin
       - socat
     state: present
 
