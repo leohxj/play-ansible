@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-# 这个镜像解决了 git clone 的问题, 但还是会走 curl 下载 portable-ruby, 还需要 curl 代理
 # 国内下载的话, 可使用 https://gitee.com/cunkai/HomebrewCN/tree/master 脚本
+# 这个镜像解决了 git clone 的问题, 但还是会用 curl 下载 portable-ruby, 所以还是需要 curl 代理
 
+# 全局走 http_proxy 的时候, 设置 git clone 不走代理
+git config --global http.proxy ""
 
 # 中科大
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
