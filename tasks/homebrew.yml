@@ -3,9 +3,17 @@
 # 安装过程比较长, 走 github 仓库大约 30min, 国内镜像大约 8m
 # 可添加输出重定向 >> uninstall_homebrew.log
 
+# - name: Uninstall Homebrew
+#   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
+#   ignore_errors: true
+
+# 测试连通性
 - name: Uninstall Homebrew
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" -- -f
-  ignore_errors: true
+  shell: ping -c 1 mirrors.ustc.edu.cn
+  register: ping
+
+- debug:
+    var: ping.stdout
 
 - name: Install Homebrew
   shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> /tmp/install_homebrew.log

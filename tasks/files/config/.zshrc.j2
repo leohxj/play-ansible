@@ -129,18 +129,20 @@ alias lg='lazygit'
 
 # aliases
 alias flush_dns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
-alias proxy="export https_proxy=http://127.0.0.1:1087;export http_proxy=http://127.0.0.1:1087;export all_proxy=socks5://127.0.0.1:1080;export HTTPS_PROXY=http://127.0.0.1:1087;export HTTP_PROXY=http://127.0.0.1:1087;export ALL_PROXY=socks5://127.0.0.1:1080;"
+alias proxy="export https_proxy={{proxy}};export http_proxy={{proxy}};export all_proxy=socks5://127.0.0.1:1080;export HTTPS_PROXY={{proxy}};export HTTP_PROXY={{proxy}};export ALL_PROXY=socks5://127.0.0.1:1080;"
 alias unproxy="unset https_proxy;unset http_proxy;unset all_proxy;unset HTTPS_PROXY;unset HTTP_PROXY;unset ALL_PROXY"
 
 # 统计耗时
 alias scurl='curl -w "%{time_total} \n" -s --output /dev/null'
 
 # 使用 lsd 替代 ls
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+if [-x $(which lsd) ]; then
+  alias ls='lsd'
+  alias l='ls -l'
+  alias la='ls -a'
+  alias lla='ls -la'
+  alias lt='ls --tree'
+fi
 
 # 镜像设置
 export NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
@@ -172,9 +174,11 @@ export EDITOR="vim"
 eval "$(zoxide init zsh)"
 
 # mcfly
-eval "$(mcfly init zsh)"
-SAVEHIST=1000  # Save most-recent 1000 lines
-HISTFILE=~/.zsh_history
+if [-x $(which mcfly) ]; then
+  eval "$(mcfly init zsh)"
+  SAVEHIST=1000  # Save most-recent 1000 lines
+  HISTFILE=~/.zsh_history
+fi
 
 
 # broot, 需要先执行一次, 才可以

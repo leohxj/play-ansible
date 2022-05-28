@@ -22,6 +22,6 @@
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 - name: Copy .zshrc
-  copy:
-    src: config/.zshrc
+  template:
+    src: files/config/.zshrc.j2
     dest: ~/.zshrc
