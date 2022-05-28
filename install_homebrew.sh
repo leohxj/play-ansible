@@ -22,12 +22,14 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 # export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
 # export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
 
+# 执行此 sh 文件的时候, 还是需要 http_proxy 去处理 githubusercontent 下载
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# 拉取 brew install 仓库, 执行 install.sh
-rm -rf /tmp/brew-install
-git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git /tmp/brew-install
-
-NONINTERACTIVE=1 /bin/bash /tmp/brew-install/install.sh
-
+# --------------------------------------------------
+# 拉取 brew install 仓库, 执行 install.sh, 最后还是会从 https://ghcr.io/v2/homebrew/portable-ruby/portable-ruby 下载, 所以还是需要 curl 进行代理
+# rm -rf /tmp/brew-install
+# git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git /tmp/brew-install
+# NONINTERACTIVE=1 /bin/bash /tmp/brew-install/install.sh
 # 清理数据
-rm -rf /tmp/brew-install
+# rm -rf /tmp/brew-install
+# --------------------------------------------------
