@@ -39,6 +39,8 @@
     PATH: "{{ ansible_env.HOME }}/.volta/bin:{{ansible_env.PATH}}"
   args:
     creates: "{{ ansible_env.HOME }}/.volta/bin/serve"
+  retries: 3
+  ignore_errors: true
 
 # 列出已安装的模块
 - name: Volta list installed npm packages.
