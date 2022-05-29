@@ -8,7 +8,7 @@
 #   ignore_errors: true
 
 # 测试连通性
-- name: Uninstall Homebrew
+- name: Ping Homebrew Mirrors
   shell: ping -c 1 mirrors.ustc.edu.cn
   register: ping
 
