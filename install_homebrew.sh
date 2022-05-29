@@ -7,20 +7,25 @@ set -e
 # 全局走 http_proxy 的时候, 设置 git clone 不走代理
 git config --global http.proxy ""
 
+
 # 中科大
+ping -c 1 mirrors.ustc.edu.cn
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 
 # 清华大学
+ping -c 1 mirrors.tuna.tsinghua.edu.cn
 # export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 # export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 
 # 南京大学
+ping -c 1 mirrors.nju.edu.cn
 # export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.nju.edu.cn/git/brew.git"
 # export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.nju.edu.cn/git/homebrew-core.git"
 
 
 # 阿里云 速度最慢, 有时候还连不上
+ping -c 1 mirrors.aliyun.com
 # export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/brew.git"
 # export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.aliyun.com/homebrew/homebrew-core.git"
 
