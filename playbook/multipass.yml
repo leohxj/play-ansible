@@ -21,5 +21,6 @@
     - import_tasks: ../tasks/docker.yml
     - import_tasks: ../tasks/ssh.yml
     - import_tasks: ../tasks/dotfiles.yml
+    # 可选安装
     # - import_tasks: ../tasks/homebrew.yml
 

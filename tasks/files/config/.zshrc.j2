@@ -125,6 +125,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# ============  CUSTOM ====================
+
+# Created by newuser for 5.8
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 alias lg='lazygit'
 
 # aliases
@@ -136,7 +141,7 @@ alias unproxy="unset https_proxy;unset http_proxy;unset all_proxy;unset HTTPS_PR
 alias scurl='curl -w "%{time_total} \n" -s --output /dev/null'
 
 # 使用 lsd 替代 ls
-if [-x $(which lsd) ]; then
+if [[ -n $(which lsd) ]]; then
   alias ls='lsd'
   alias l='ls -l'
   alias la='ls -a'
@@ -152,16 +157,12 @@ export ELECTRON_BUILDER_BINARIES_MIRROR=http://npm.taobao.org/mirrors/electron-b
 export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 
 
-# Created by newuser for 5.8
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # starship
 eval "$(starship init zsh)"
 
 # docker rootless mode
 export PATH=/usr/bin:$PATH
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
 
 # volta
 export VOLTA_HOME="$HOME/.volta"
@@ -174,7 +175,7 @@ export EDITOR="vim"
 eval "$(zoxide init zsh)"
 
 # mcfly
-if [-x $(which mcfly) ]; then
+if [[ -n $(which mcfly) ]]; then
   eval "$(mcfly init zsh)"
   SAVEHIST=1000  # Save most-recent 1000 lines
   HISTFILE=~/.zsh_history
@@ -184,4 +185,4 @@ fi
 # broot, 需要先执行一次, 才可以
 # source /home/leohxj/.config/broot/launcher/bash/br
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
