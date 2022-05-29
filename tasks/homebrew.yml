@@ -24,7 +24,7 @@
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 
 # 还原 brew git 仓库
-- name: reset homebrew-core repo
+- name: reset brew repo
   shell: git -C "/home/linuxbrew/.linuxbrew/Homebrew" remote set-url origin https://github.com/Homebrew/brew
 
 # 还原 homebrew-core git 仓库
@@ -46,6 +46,12 @@
     path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
+- name: install lsd
+  homebrew:
+    name: lsd
+    path: /home/linuxbrew/.linuxbrew/bin
+    state: present
+
 - name: tap mcfly
   homebrew_tap:
     name: cantino/mcfly
@@ -57,11 +63,6 @@
     path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
-- name: install lsd
-  homebrew:
-    name: lsd
-    path: /home/linuxbrew/.linuxbrew/bin
-    state: present
 
 # - name: install broot
 #   homebrew:

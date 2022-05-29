@@ -32,10 +32,12 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 # 执行此 sh 文件的时候, 还是需要 http_proxy 去处理 githubusercontent 下载
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+echo "----- set-utl to github -----"
 # 恢复 github 源
 git -C "/home/linuxbrew/.linuxbrew/Homebrew" remote set-url origin https://github.com/Homebrew/brew
 git -C "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core" remote set-url origin https://github.com/Homebrew/homebrew-core
 
+echo "----- brew doctor -----"
 # brew doctor
 /home/linuxbrew/.linuxbrew/bin/brew doctor
 
