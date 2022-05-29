@@ -9,7 +9,7 @@
 
 # 测试连通性
 - name: Ping Homebrew Mirrors
-  shell: ping -c 1 mirrors.ustc.edu.cn
+  shell: ping -c 1 github.com
   register: ping
 
 - debug:
@@ -17,9 +17,9 @@
 
 - name: Install Homebrew
   shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" >> /tmp/install_homebrew.log
-  environment:
-    HOMEBREW_BREW_GIT_REMOTE: "https://mirrors.ustc.edu.cn/brew.git"
-    HOMEBREW_CORE_GIT_REMOTE: "https://mirrors.ustc.edu.cn/homebrew-core.git"
+  # environment:
+  #   HOMEBREW_BREW_GIT_REMOTE: "https://mirrors.ustc.edu.cn/brew.git"
+  #   HOMEBREW_CORE_GIT_REMOTE: "https://mirrors.ustc.edu.cn/homebrew-core.git"
   args:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 
