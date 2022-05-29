@@ -141,7 +141,7 @@ alias unproxy="unset https_proxy;unset http_proxy;unset all_proxy;unset HTTPS_PR
 alias scurl='curl -w "%{time_total} \n" -s --output /dev/null'
 
 # 使用 lsd 替代 ls
-if [[ -n $(which lsd) ]]; then
+if [[ -f $(which lsd) ]]; then
   alias ls='lsd'
   alias l='ls -l'
   alias la='ls -a'
@@ -175,7 +175,7 @@ export EDITOR="vim"
 eval "$(zoxide init zsh)"
 
 # mcfly
-if [[ -n $(which mcfly) ]]; then
+if [[ -f $(which mcfly) ]]; then
   eval "$(mcfly init zsh)"
   SAVEHIST=1000  # Save most-recent 1000 lines
   HISTFILE=~/.zsh_history
