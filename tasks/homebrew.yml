@@ -23,6 +23,23 @@
   args:
     creates: /home/linuxbrew/.linuxbrew/bin/brew
 
+# 还原 brew git 仓库
+- name: reset homebrew-core repo
+  shell: git -C "/home/linuxbrew/.linuxbrew/Homebrew" remote set-url origin https://github.com/Homebrew/brew
+
+# 还原 homebrew-core git 仓库
+- name: reset homebrew-core repo
+  shell: git -C "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core" remote set-url origin https://github.com/Homebrew/homebrew-core
+
+# 检测 brew doctor 是否有异常
+- name: run brew doctor
+  shell: /home/linuxbrew/.linuxbrew/bin/brew doctor
+  register: doctor
+  ignore_errors: true
+
+- debug:
+    var: doctor.stdout
+
 - name: Install neofetch
   homebrew:
     name: neofetch
