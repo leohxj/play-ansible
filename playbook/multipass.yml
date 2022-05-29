@@ -18,8 +18,6 @@
     - import_tasks: ../tasks/starship.yml
     - import_tasks: ../tasks/oh-my-zsh.yml
     - import_tasks: ../tasks/tmux.yml
-    - import_tasks: ../tasks/docker.yml
     - import_tasks: ../tasks/ssh.yml
     - import_tasks: ../tasks/dotfiles.yml
-    - import_tasks: ../tasks/homebrew.yml
-
+    - import_tasks: ../tasks/docker.yml
