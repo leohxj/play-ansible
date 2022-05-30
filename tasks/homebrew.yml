@@ -46,6 +46,19 @@
     path: /home/linuxbrew/.linuxbrew/bin
     state: present
 
+- name: install bat
+  homebrew:
+    name: bat
+    path: /home/linuxbrew/.linuxbrew/bin
+    state: present
+
+- name: install zoxide
+  homebrew:
+    name: zoxide
+    path: /home/linuxbrew/.linuxbrew/bin
+    state: present
+
+
 - name: install lsd
   homebrew:
     name: lsd

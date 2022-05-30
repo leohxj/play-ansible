@@ -29,7 +29,6 @@
       - file
       - thefuck
       - tldr
-      - zoxide
       - fzf
       - git
       - git-extras
