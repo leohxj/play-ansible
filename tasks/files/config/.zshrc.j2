@@ -153,8 +153,8 @@ fi
 export NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node/
 export ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
 export ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/
-# export PUPPETEER_DOWNLOAD_HOST=https://npmmirror.com/mirrors
 export SASS_BINARY_SITE=https://npmmirror.com/mirrors/node-sass
+# export PUPPETEER_DOWNLOAD_HOST=https://npmmirror.com/mirrors
 
 
 # starship
@@ -183,8 +183,7 @@ if [[ -f $(which mcfly) ]]; then
   HISTFILE=~/.zsh_history
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # broot, 需要先执行一次, 才可以
 # source /home/leohxj/.config/broot/launcher/bash/br
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
