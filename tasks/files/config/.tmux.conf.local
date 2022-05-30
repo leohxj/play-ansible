@@ -315,7 +315,3 @@ set -g mode-keys vi
 # bind-key
 bind - split-window -v -c '#{pane_current_path}'
 bind \\ split-window -h -c '#{pane_current_path}'
-
-# Fig Tmux Integration: Enabled
-source-file ~/.fig/tmux
-# End of Fig Tmux Integration
